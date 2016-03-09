@@ -4,7 +4,7 @@ class BoatsController < ApplicationController
     end
     
     def show
-        
+        @jobs = Job.where(boat_id: nil)
     end
     
     def edit
@@ -13,8 +13,8 @@ class BoatsController < ApplicationController
     
     def update
         @boat = Boat.find(params[:id])
-        @boat.update(name: params[:boat][:name], capacity: params[:boat][:capacity], location: params[:boat][:location])
-        redirect_to "/"
+        @boat.update(boat_params)
+        redirect_to boats_path
         # Shorten the update logic if you want and have time
     end
     
@@ -23,7 +23,7 @@ class BoatsController < ApplicationController
     end
     
     def create
-        @boat = Boat.create(user_id: current_user.id, name: params[:boat][:name], capacity: params[:boat][:capacity], location: params[:boat][:location])
+        @boat = Boat.where(user_id: current_user.id).create(boat_params)
         redirect_to "/"
     end
     
@@ -35,6 +35,11 @@ class BoatsController < ApplicationController
         else
             flash[:alert] = "Error! Error! Error!"
         end
+    end
+    
+    private
+    def boat_params
+        params.require(:boat).permit(:name, :capacity, :location) 
     end
     
 end

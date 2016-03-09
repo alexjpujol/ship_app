@@ -1,1 +1,14 @@
 <h1>Assign a job to this boat!</h1>
+
+<ul>
+<% @jobs.each do |b| %>
+    <li>
+    <%= b.name %>
+    <%= b.containers_needed %>
+    <%= b.cargo %>
+    <%= b.cost %>
+    <%= b.destination %>
+        <%= link_to("Assign", job_path(b.id, :boat_id => params[:id]), method: :post) %>
+    </li>
+<% end %>
+</ul>

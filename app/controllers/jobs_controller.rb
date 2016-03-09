@@ -13,7 +13,7 @@ class JobsController < ApplicationController
     end
     
     def create
-        @job = Job.create(name: params[:job][:name], user_id: current_user.id, containers_needed: params[:job][:containers_needed], cargo: params[:job][:cargo], cost: params[:job][:cost], destination: params[:job][:destination])
+        @job = Job.where(user_id: current_user.id).create(job_params)
         redirect_to jobs_path
     end
     
@@ -23,9 +23,18 @@ class JobsController < ApplicationController
     
     def update
         @job = Job.find(params[:id])
-        @job.update(name: params[:job][:name], user_id: current_user.id, containers_needed: params[:job][:containers_needed], cargo: params[:job][:cargo], cost: params[:job][:cost], destination: params[:job][:destination])
+        @job.update(job_params)
         redirect_to job_path
+        
+        @jobs.update(boat_id: params[:id])
     end
+    
+#    def assign_job
+#        @job = Job.where(boat_id: nil)
+#        @job.boat_id = Boat.find(params[:id])
+#        @job.save
+#        
+#    end
     
     def destroy
         @job = Job.find(params[:id])
@@ -35,6 +44,11 @@ class JobsController < ApplicationController
         else
             flash[:alert] = "Error! Error! Error!"
         end
+    end
+    
+    private
+    def job_params
+        params.require(:job).permit(:name, :containers_needed, :cargo, :cost, :destination) 
     end
     
 end
