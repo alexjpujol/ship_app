@@ -1,0 +1,8 @@
+<h1>This is where you edit a boat!</h1>
+
+<%= form_for @boat do |b| %>
+    <%= b.text_field :name, placeholder: "Name" %><br>
+    <%= b.text_field :capacity, placeholder: "Capacity" %><br>
+    <%= b.text_field :location, placeholder: "Location" %><br>
+    <%= b.submit :update, value: "Update Boat"%>
+<% end %>

@@ -3,10 +3,18 @@
 
 
 <% if user_signed_in? %>
-    <%= current_user.id %>
-    <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-<% else %>
-    <%= "Nein Nein Nein! No User!" %>
-    <%= link_to "Log In", user_session_path, method: :post %>
-    <%= link_to "Sign Up", new_user_registration_path, method: :get %>
+    
+    <ul>    
+    <% @boats.each do |b|%>
+        <li>
+        <%= b.id %>
+        <%= b.name %>
+        <%= b.capacity %>
+        <%= b.location %>
+        <%= link_to("Boat Info", edit_boat_path(b.id), method: :get) %>
+        <%= link_to("Delete Boat", boat_path(b.id), method: :delete) %>
+        </li>
+    <% end %>
+    </ul>
 <% end %>
+    
