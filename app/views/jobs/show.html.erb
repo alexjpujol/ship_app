@@ -1,0 +1,13 @@
+<h1>This is where you see the job's details.</h1>
+
+<%= @job.name %>
+<%= @job.containers_needed %>
+<%= @job.cargo %>
+<%= @job.cost %>
+<%= @job.destination %>
+
+
+<% if current_user.id == @job.user_id %>
+    <%= link_to("Edit Job", edit_job_path(@job.id), method: :get) %>
+    <%= link_to("Delete Job", job_path(@job.id), method: :delete) %>
+<% end %>

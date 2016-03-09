@@ -1,0 +1,10 @@
+<h1>Edit your job here!</h1>
+
+<%= form_for @job do |b| %>
+    <%= b.text_field :name, placeholder: "Name" %><br>
+    <%= b.text_field :containers_needed, placeholder: "Containers Needed" %><br>
+    <%= b.text_field :cargo, placeholder: "Cargo" %><br>
+    <%= b.text_field :cost, placeholder: "Cost" %><br>
+    <%= b.text_field :destination, placeholder: "Destination" %><br>
+    <%= b.submit :update, value: "Update Job"%>
+<% end %>

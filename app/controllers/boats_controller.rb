@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
     def index
-        
+        @boats = Boat.where(user_id: current_user.id)
     end
     
     def show

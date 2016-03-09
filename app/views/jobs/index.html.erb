@@ -1,0 +1,13 @@
+<h1>This is a list of all available jobs</h1>
+
+<ul>
+<% @jobs.each do |b| %>
+    <li>
+    <%= link_to(b.name, job_path(b.id), method: :get) %>
+    <%= b.containers_needed %>
+    <%= b.cargo %>
+    <%= b.cost %>
+    <%= b.destination %>
+    </li>
+<% end %>
+</ul>

@@ -1,0 +1,16 @@
+<h1>This is a show page for the current boats!</h1>
+
+<ul>    
+    <% @boats.each do |b|%>
+        <li>
+        <%= b.id %>
+        <%= b.name %>
+        <%= b.capacity %>
+        <%= b.location %>
+        <%= link_to("Assign Job", boat_path(b.id), method: :get) %>
+        <%= link_to("Edit Boat", edit_boat_path(b.id), method: :get) %>
+        <%= link_to("Delete Boat", boat_path(b.id), method: :delete) %>
+        </li>
+    <% end %>
+</ul>
+
