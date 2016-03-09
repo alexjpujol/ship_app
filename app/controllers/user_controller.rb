@@ -5,4 +5,8 @@ class UserController < ApplicationController
     
     end
     
+    def destroy
+        
+    end
+    
 end

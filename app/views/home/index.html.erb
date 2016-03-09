@@ -1,4 +1,12 @@
 <h1>This is a test!</h1>
 <h2>I like turtles!</h2>
 
-<%= current_user %>
+
+<% if user_signed_in? %>
+    <%= current_user.id %>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+<% else %>
+    <%= "Nein Nein Nein! No User!" %>
+<%= link_to "Log In", user_session_path, method: :post %>
+<%= link_to "Sign Up", new_user_registration_path, method: :get %>
+<% end %>
