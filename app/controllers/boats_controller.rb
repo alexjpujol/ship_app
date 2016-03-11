@@ -24,8 +24,14 @@ class BoatsController < ApplicationController
     end
     
     def create
-        @boat = Boat.where(user_id: current_user.id).create(boat_params)
-        redirect_to boats_path
+        @boat = Boat.where(user_id: current_user.id).new(boat_params)
+        if @boat.save
+            flash[:notice] = "BOATS AND HOES!"
+            redirect_to boats_path
+        else
+            flash[:notice] = "Nicht, nicht! Invalid location."
+            render :new
+        end
     end
     
     def destroy
