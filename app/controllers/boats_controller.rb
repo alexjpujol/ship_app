@@ -5,6 +5,7 @@ class BoatsController < ApplicationController
     
     def show
         @jobs = Job.where(boat_id: nil)
+        @boat = Boat.find(params[:id])
     end
     
     def edit
@@ -24,7 +25,7 @@ class BoatsController < ApplicationController
     
     def create
         @boat = Boat.where(user_id: current_user.id).create(boat_params)
-        redirect_to "/"
+        redirect_to boats_path
     end
     
     def destroy

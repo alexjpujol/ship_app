@@ -11,3 +11,22 @@
     <%= link_to("Edit Job", edit_job_path(@job.id), method: :get) %>
     <%= link_to("Delete Job", job_path(@job.id), method: :delete) %>
 <% end %>
+
+
+<ul>
+	<p>ID | NAME | CAPACITY | LOCATION </p>
+	<% @jobs.each do |b| %>
+    	<li>
+    	<%= b.name %>
+    	<%= b.containers_needed %>
+    	<%= b.cargo %>
+    	<%= b.cost %>
+    	<%= b.destination %>
+        <%= form_for Job.find(params[:id]) do |job| %>
+        	<!-- ideally we will have boat name not boat id -->
+			<%= job.text_field :boat_id, :placeholder => "Enter Boat ID" %><br>
+			<%= job.submit :update %>
+		<% end %>
+    	</li>
+	<% end %>
+</ul>

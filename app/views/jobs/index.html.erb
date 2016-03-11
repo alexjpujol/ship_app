@@ -11,3 +11,7 @@
     </li>
 <% end %>
 </ul>
+
+<p><%= link_to("View Your Boats", boats_path(user_id: current_user.id), method: :get) %></p>
+<p>Should we also have a link to all boats?</p>
+<p><%= link_to("View ALL Boats", boats_path, method: :get) %></p>
