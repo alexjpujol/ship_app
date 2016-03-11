@@ -28,13 +28,29 @@ class JobsController < ApplicationController
         
         @jobs.update(boat_id: params[:id])
     end
-    
-#    def assign_job
-#        @job = Job.where(boat_id: nil)
-#        @job.boat_id = Boat.find(params[:id])
-#        @job.save
-#        
-#    end
+
+    # we could also do something like this:
+    # def assign_job
+    #     @job = Job.find(params[:id])
+    #     @job.update(boat_id: params[:job][:boat_id])
+
+    #     if @job.save
+    #         redirect_to job_path(@job.id)
+    #     flash[:info] = "Job Assigned Successfully"
+    #     else
+    #     render :show
+    #     flash[:info] = "There was an errod assigning the job."
+    #     end
+    # end
+
+    # and then have a form to assign job
+    # <%= form_for @job, url: "/assign_job/#{@job.id}", method: :put do |j| %>
+    #   <%= j.label "Boat Name" %>
+    #   <%= j.collection_select(:boat_id, @boats, :id, :name) %>
+    #   <%= j.submit "Assign Job" %>
+    # <% end %>
+
+    # and in the routes put "/assign_job/:id" => "jobs#assign_job"
     
     def destroy
         @job = Job.find(params[:id])
