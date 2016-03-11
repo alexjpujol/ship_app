@@ -5,6 +5,7 @@
     <%= b.text_field :containers_needed, placeholder: "Containers Needed" %><br>
     <%= b.text_field :cargo, placeholder: "Cargo" %><br>
     <%= b.text_field :cost, placeholder: "Cost" %><br>
-    <%= b.text_field :destination, placeholder: "Destination" %><br>
+    <%= b.select :origin, ["London", "Oakland", "Long Beach", "New York", "Singapore", "Thailand", "Vietnam", "Albuquerque", "Hamburg", "Newcastle", "Marseille", "St.            Tropez", "Cannes", "Rome"], {prompt: "Select Origin"} %><br>
+    <%= b.select :destination, ["London", "Oakland", "Long Beach", "New York",      "Singapore", "Thailand", "Vietnam", "Albuquerque", "Hamburg", "Newcastle", "Marseille", "St.            Tropez", "Cannes", "Rome"], {prompt: "Select Destination"} %><br>
     <%= b.submit :create, value: "Create Job"%>
 <% end %>

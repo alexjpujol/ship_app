@@ -3,5 +3,5 @@ class Boat < ActiveRecord::Base
     has_many :jobs
     
     validates_uniqueness_of :name
-    validates :cargo, length: { minimum: 50 }
+    validates :location, inclusion: {in: ["London", "Oakland", "Long Beach", "New York", "Singapore", "Thailand", "Vietnam", "Albuquerque", "Hamburg", "Newcastle", "Marseille", "St. Tropez", "Cannes", "Rome"]}
 end
