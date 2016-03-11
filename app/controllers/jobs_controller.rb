@@ -1,11 +1,12 @@
 class JobsController < ApplicationController
     
     def index
-        @jobs = Job.all
+        @jobs = Job.where(boat_id: nil)
     end
     
     def show
         @job = Job.find(params[:id])
+        @jobs = Job.all
     end
     
     def new
@@ -26,7 +27,7 @@ class JobsController < ApplicationController
         @job.update(job_params)
         redirect_to job_path
         
-        @jobs.update(boat_id: params[:id])
+        @job.update(boat_id: params[:id])
     end
 
     # we could also do something like this:

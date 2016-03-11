@@ -15,8 +15,8 @@ class BoatsController < ApplicationController
     def update
         @boat = Boat.find(params[:id])
         @boat.update(boat_params)
+        
         redirect_to boats_path
-        # Shorten the update logic if you want and have time
     end
     
     def new
