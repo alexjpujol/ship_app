@@ -1,16 +1,19 @@
 <h1>This is a show page for the current boats!</h1>
 
-<ul>    
+<ul>
     <% @boats.each do |b|%>
-        <li>
-        <%= b.id %>
-        <%= b.name %>
-        <%= b.capacity %>
-        <%= b.location %>
-        <%= link_to("Assign Job", boat_path(b.id), method: :get) %>
-        <%= link_to("Edit Boat", edit_boat_path(b.id), method: :get) %>
-        <%= link_to("Delete Boat", boat_path(b.id), method: :delete) %>
-        </li>
+        <h2><%= b.name %></h2>
+        <li> BOAT ID: <%= b.id %></li>
+        <li>NAME: <%= b.name %></li>
+        <li>CAPACITY: <%= b.capacity %></li>
+        <li>LOCATION: <%= b.location %></li>
+        <!-- i took out assign job and put a link to all jobs instead  -->
+        <li><%= link_to("View All Jobs", jobs_path, method: :get) %></li>
+        <li><%= link_to("View Boat", boat_path(b.id), method: :get) %></li>
+        <li><%= link_to("Edit Boat", edit_boat_path(b.id), method: :get) %></li>
+        <li><%= link_to("Delete Boat", boat_path(b.id), method: :delete) %></li>
     <% end %>
 </ul>
+
+<%= link_to("Create New Boat", new_boat_path(user_id: current_user.id), method: :get) %>
 
