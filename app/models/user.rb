@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
     
   has_many :boats
   has_many :jobs
-    has_one :profile, dependent: :destroy
+  has_many :relationships
+  has_one :profile, dependent: :destroy
+    
     
     after_create do 
         Profile.create(user_id: self.id)

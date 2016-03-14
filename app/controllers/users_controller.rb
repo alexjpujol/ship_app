@@ -4,8 +4,14 @@ class UsersController < ApplicationController
     def index
     end
     
-    def destroy
-        
+    def destroy    
     end
+    
+    def following
+        @user = User.find(params[:id])
+        @following = @user.relationships
+    end
+    
+    
     
 end
