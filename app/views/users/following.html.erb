@@ -1,0 +1,10 @@
+<h1>View Boats You're Following!</h1>
+
+
+<ul>
+    <% @following.each do |f| %>
+    <li>
+        <%= f.boat.name %>
+    </li>
+    <% end %>
+</ul>

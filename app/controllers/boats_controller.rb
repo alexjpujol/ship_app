@@ -1,15 +1,21 @@
 class BoatsController < ApplicationController
     def index
-        @boats = Boat.where(user_id: current_user.id)
+        @boats = Boat.all
     end
     
     def show
         @jobs = Job.where(boat_id: nil)
         @boat = Boat.find(params[:id])
+        @relationship = Relationship.new
+        @follower = Relationship.where(boat_id: params[:id], user_id: current_user.id).first
     end
     
     def edit
         @boat = Boat.find(params[:id])
+    end
+    
+    def follow
+        
     end
     
     def update
