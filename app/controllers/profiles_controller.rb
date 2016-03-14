@@ -1,5 +1,10 @@
 class ProfilesController < ApplicationController
     
+    before_action :authenticate_user!
+
+	def index
+	end
+
     def show
         @profile = Profile.where(user_id: params[:id]).first
     end
@@ -19,5 +24,5 @@ class ProfilesController < ApplicationController
     def profile_params
         params.require(:profile).permit(:user_id, :fname, :lname, :avatar)
     end
-    
+	
 end

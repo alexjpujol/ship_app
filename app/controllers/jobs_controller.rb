@@ -34,18 +34,6 @@ class JobsController < ApplicationController
         redirect_to job_path
     end
 
-#    def assign_job
-#        @job = Job.find(params[:id])
-#        @job.update(boat_id: params[:job][:boat_id])
-#        
-#        if @job.save
-#            redirect_to job_path(@job.id)
-#            flash[:info] = "Job Assigned! Ach Ja!"
-#        else
-#            render :show
-#            flash[:info] = "Thre was an ERROR!"
-#        end
-#    end
     
     def destroy
         @job = Job.find(params[:id])
