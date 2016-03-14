@@ -3,10 +3,11 @@ Rails.application.routes.draw do
     resources :boats
    # nested routes
     resources :jobs
+    resources :profiles
     
     get '/' => "home#index"
-    put 'jobs/:id' => "jobs#assign_job"
-
+    post 'profiles/:id' => "profiles#edit" 
+    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

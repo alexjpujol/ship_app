@@ -13,3 +13,102 @@
  *= require_tree .
  *= require_self
  */
+
+
+@import url('http://fonts.googleapis.com/css?family=Lato');
+@import url('http://fonts.googleapis.com/css?family=Arvo');
+
+
+html {
+  font-family: "Arvo", slab-serif;
+  color: #000;
+  font-size: .9em;
+  line-height: 1.2;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	font-family: "Lato";
+	font-size: 2.5em;
+	line-height: 1;
+}
+
+.flash {
+  position: relative;
+  width: 30em;  
+  padding: 1em;
+  border-radius: 4px;
+  margin: 0 auto;
+  padding: 1em;  
+}
+
+.notice {
+  border: 1px solid green;
+  background-color: #ccff99;
+}
+
+.alert {
+  border: 1px solid red;
+  background-color: #ff6666;
+}
+
+header {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+header h1 {
+  text-align: center;
+}
+
+nav {
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  line-height: 1;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  float: right;
+  padding: 10px 0;
+  margin-right: -4px;
+  width: 120px;
+  text-align: center;
+  font-family: "Lato";
+  font-size: 22px;
+}
+
+nav a {
+  padding: 10px 20px;
+  margin: 0;
+  width: 120px;
+  font-family: "Arvo", slab-serif;
+  color: #000;
+  font-size: .9em;
+  line-height: 1.2;
+  text-decoration: none;
+  color: #000;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+nav a:hover {
+  background-color: #4ECDC4;
+  opacity: .8;
+  color: #000;
+  text-shadow:none;
+}
