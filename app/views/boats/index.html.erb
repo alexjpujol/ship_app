@@ -1,8 +1,8 @@
-<h1 align="center">This is a show page for the current boats!</h1>
+<h1 align="center">Current Boats</h1>
 
-<div id="boat">
     <ul>
         <% @boats.each do |b|%>
+        <div id="boat">
             <h2><%= b.name %></h2>
             <li> BOAT ID: <%= b.id %></li>
             <li>NAME: <%= b.name %></li>
@@ -13,7 +13,7 @@
             <li><%= link_to("View Boat", boat_path(b.id), method: :get) %></li>
             <li><%= link_to("Edit Boat", edit_boat_path(b.id), method: :get) %></li>
             <li><%= link_to("Delete Boat", boat_path(b.id), method: :delete) %></li>
+        </div>
         <% end %>
     </ul>
 
-</div>

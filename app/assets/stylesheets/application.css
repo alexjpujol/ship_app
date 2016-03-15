@@ -140,8 +140,7 @@ nav a:hover {
   display: table;
   margin: 0 auto;
   width: 40em;
-  border-right: 2px solid black; 
-  border-left: 2px solid black; 
+  border-bottom: 2px solid black;  
 }
 
 #boat li {
