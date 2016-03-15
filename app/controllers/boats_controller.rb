@@ -4,7 +4,7 @@ class BoatsController < ApplicationController
     end
     
     def show
-        @jobs = Job.where(boat_id: nil)
+        @jobs = Job.where(boat_id: params[:id])
         @boat = Boat.find(params[:id])
         @relationship = Relationship.new
         @follower = Relationship.where(boat_id: params[:id], user_id: current_user.id).first

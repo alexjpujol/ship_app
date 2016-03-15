@@ -1,10 +1,10 @@
-<%= @profile.fname %>
-<%= @profile.lname %>
+<div id="profilepic">
+	<h2><%= @profile.fname %></h2>
+	<h2><%= @profile.lname %></h2>
+	<%= image_tag @profile.avatar.url(:medium) %>
+</div>
 
-<%= image_tag @profile.avatar.url(:medium) %>
-
-
-<div>
+<div id="updateinfo">
     <p>Update Your Info!</p>
     <%= form_for @profile, :url => profile_path, :html => { :multipart => true } do |f| %>
         <p><%= f.label :fname, "First Name" %></p> 

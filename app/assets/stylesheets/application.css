@@ -24,6 +24,7 @@ html {
   color: #000;
   font-size: .9em;
   line-height: 1.2;
+  list-style: none;
 }
 
 a {
@@ -112,3 +113,51 @@ nav a:hover {
   color: #000;
   text-shadow:none;
 }
+
+#container {
+  position:relative;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #000;
+}
+
+#profilepic {
+  display: table;
+  margin: 0 auto;
+  width: 40em;
+  text-align: center;
+}
+
+#updateinfo {
+  display: table;
+  margin: 0 auto;
+  width: 40em;
+  border-top: 2px solid black; 
+}
+
+#boat {
+  display: table;
+  margin: 0 auto;
+  width: 40em;
+  border-right: 2px solid black; 
+  border-left: 2px solid black; 
+}
+
+#boat li {
+  list-style: none;
+  padding: 1em;
+}
+
+#job {
+  display: table;
+  margin: 0 auto;
+  width: 50em;
+  border-bottom: 2px solid black; 
+}
+
+#job p {
+  padding: 1em;
+}
+
+

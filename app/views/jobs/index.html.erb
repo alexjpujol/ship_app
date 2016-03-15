@@ -1,17 +1,14 @@
-<h1>This is a list of all available jobs</h1>
+<h1 align="center">This is a list of all available jobs</h1>
 
-<ul>
 <% @jobs.each do |b| %>
-    <li>
-    <%= link_to(b.name, job_path(b.id), method: :get) %>
-    <%= b.containers_needed %>
-    <%= b.cargo %>
-    <%= b.cost %>
-    <%= b.destination %>
-    </li>
+<div id="job">
+    <p>JOB NAME: <%= link_to(b.name, job_path(b.id), method: :get) %></p>
+    <p>CONTAINERS NEEDED: <%= b.containers_needed %></p>
+    <p>CARGO: <%= b.cargo %></p>
+    <p>COST: $ <%= b.cost %></p>
+    <p>ORIGIN: <%= b.origin %></p>
+    <p>DESTINATION: <%= b.destination %></p>
+    <p><%= link_to("Delete Job", job_path(b.id), method: :delete) %></p>
+</div>
 <% end %>
-</ul>
 
-<p><%= link_to("View Your Boats", boats_path(user_id: current_user.id), method: :get) %></p>
-<p>Should we also have a link to all boats?</p>
-<p><%= link_to("View ALL Boats", boats_path, method: :get) %></p>
