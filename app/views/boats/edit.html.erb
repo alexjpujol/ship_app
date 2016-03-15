@@ -1,8 +1,9 @@
 <h1>This is where you edit a boat!</h1>
 
-<%= form_for @boat do |b| %>
-    <%= b.text_field :name, placeholder: "Name" %><br>
-    <%= b.text_field :capacity, placeholder: "Capacity" %><br>
-    <%= b.text_field :location, placeholder: "Location" %><br>
-    <%= b.submit :update, value: "Update Boat"%>
-<% end %>
+<%= form_for @boat, :url => boat_path, :html => { :multipart => true } do |f| %>
+        <p><%= f.text_field :name, placeholder: "Name" %></p>
+        <p><%= f.text_field :capacity, placeholder: "Capacity" %></p>
+        <p><%= f.select :location, ["London", "Oakland", "Long Beach", "New York", "Singapore", "Thailand", "Vietnam", "Albuquerque", "Hamburg", "Newcastle", "Marseille", "St. Tropez", "Cannes", "Rome"] %></p>
+        <p><%= f.file_field :avatar %></p>
+        <p><%= f.submit %></p>
+    <% end %>
