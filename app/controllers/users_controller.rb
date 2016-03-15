@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     
     def destroy    
     end
+
+    def show
+    end
     
     def following
         @user = User.find(params[:id])

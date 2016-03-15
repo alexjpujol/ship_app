@@ -1,14 +1,21 @@
-<h1>Boat Info</h1>
+<div id="boat">
+	<h1>Boat Info</h1>
 
-<p>BOAT ID: <%= @boat.id %></p>
-<p>NAME: <%= @boat.name %></p>
-<p>CAPACITY: <%= @boat.capacity %></p>
-<p>LOCATION: <%= @boat.location %></p>
-<br><br>
+	<p>BOAT ID: <%= @boat.id %></p>
+	<p>NAME: <%= @boat.name %></p>
+	<p>CAPACITY: <%= @boat.capacity %></p>
+	<p>LOCATION: <%= @boat.location %></p>
 
-<% if @follower.nil? %>
-    <%= link_to "Follow", relationships_path(relationship: {user_id: current_user.id, boat_id: @boat.id}), method: :post, remote: true %>
-<% end %>
+	<%= @jobs.each do |j| %>
+	<%= j.name %>
+	<% end %>
 
-<p><%= link_to("Edit Boat", edit_boat_path(@boat.id), method: :get) %></p>
-<p><%= link_to("Delete Boat", boat_path(@boat.id), method: :delete) %></p>
+	<br><br>
+
+	<% if @follower.nil? %>
+	    <%= link_to "Follow", relationships_path(relationship: {user_id: current_user.id, boat_id: @boat.id}), method: :post, remote: true %>
+	<% end %>
+
+	<p><%= link_to("Edit Boat", edit_boat_path(@boat.id), method: :get) %></p>
+	<p><%= link_to("Delete Boat", boat_path(@boat.id), method: :delete) %></p>
+</div>
