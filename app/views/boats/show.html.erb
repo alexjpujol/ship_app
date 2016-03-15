@@ -5,6 +5,8 @@
 	<p>NAME: <%= @boat.name %></p>
 	<p>CAPACITY: <%= @boat.capacity %></p>
 	<p>LOCATION: <%= @boat.location %></p>
+	<p><%= image_tag @boat.avatar.url(:medium) %></p>
+	<br><br>
 
 	<%= @jobs.each do |j| %>
 	<%= j.name %>
@@ -18,4 +20,5 @@
 
 	<p><%= link_to("Edit Boat", edit_boat_path(@boat.id), method: :get) %></p>
 	<p><%= link_to("Delete Boat", boat_path(@boat.id), method: :delete) %></p>
+
 </div>
