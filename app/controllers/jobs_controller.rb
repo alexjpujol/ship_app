@@ -31,7 +31,8 @@ class JobsController < ApplicationController
     def update
         @job = Job.find(params[:id])
         @job.update(job_params)
-        redirect_to job_path
+        flash[:notice] = "Job assigned!"
+        redirect_to jobs_path
     end
 
     

@@ -4,6 +4,7 @@
 <p>NAME: <%= @boat.name %></p>
 <p>CAPACITY: <%= @boat.capacity %></p>
 <p>LOCATION: <%= @boat.location %></p>
+<p><%= image_tag @boat.avatar.url(:medium) %></p>
 <br><br>
 
 <% if @follower.nil? %>
